@@ -8,7 +8,7 @@ jobs:
     - npx truffle compile
     - npx truffle test
 
-stage:
+stages:
   - build_and_test:
       jobs:
         - build_and_test

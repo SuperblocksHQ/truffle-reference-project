@@ -1,0 +1,13 @@
+version: 1
+jobs:
+  build_and_test:
+    image: node
+    script:
+    - npm run i
+    - npm run start
+    - npx truffle compile
+    - npx truffle test
+stage:
+  - build_and_test:
+      jobs:
+        - build_and_test

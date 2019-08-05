@@ -1,2 +1,2 @@
-# test-ethereum-reference
-Ethereum reference repository to test Superblocks functionality
+# Truffle Reference Project
+Truffle reference repository to test Superblocks functionality

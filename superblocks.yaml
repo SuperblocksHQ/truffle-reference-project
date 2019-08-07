@@ -4,9 +4,8 @@ jobs:
     image: node
     script:
     - npm i
-    - npm run start
-    - npx truffle compile
-    - npx truffle test
+    - npm run build
+    - npm run test
 
 stages:
   - build_and_test:

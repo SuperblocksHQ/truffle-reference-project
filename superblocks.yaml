@@ -5,7 +5,7 @@ jobs:
     script:
     - npm i
     - npm run build
-  build:
+  test:
     image: node
     script:
     - npm i

@@ -1,13 +1,18 @@
 version: 1
 jobs:
-  build_and_test:
+  build:
     image: node
     script:
     - npm i
     - npm run build
+  build:
+    image: node
+    script:
+    - npm i
     - npm run test
 
 stages:
   - build_and_test:
       jobs:
-        - build_and_test
+        - build
+        - test

@@ -10,4 +10,3 @@ stages:
   - build_and_test:
       jobs:
         - build
-        - test

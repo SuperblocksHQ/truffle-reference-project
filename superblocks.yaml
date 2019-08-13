@@ -5,8 +5,22 @@ jobs:
     script:
     - npm i
     - npm run build
+  test:
+    image: node
+    script:
+    - npm i
+    - npm run build
+  stage2job:
+    image: node
+    script:
+    - npm i
+    - npm run build
 
 stages:
   - build_and_test:
       jobs:
         - build
+        - test
+  - build_and_test2:
+      jobs:
+        - stage2job

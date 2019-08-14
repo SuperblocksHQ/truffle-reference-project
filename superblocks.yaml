@@ -5,6 +5,11 @@ jobs:
     script:
     - npm i
     - npm run build
+  build2:
+    image: node
+    script:
+    - npm i
+    - npm run build
   test:
     image: node
     script:
@@ -24,4 +29,4 @@ stages:
   - build_and_test2:
       jobs:
         - stage2job
-        - build
+        - build2

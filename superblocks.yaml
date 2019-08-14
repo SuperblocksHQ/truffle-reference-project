@@ -24,3 +24,4 @@ stages:
   - build_and_test2:
       jobs:
         - stage2job
+        - build

@@ -20,6 +20,16 @@ jobs:
     script:
     - npm i
     - npm run build
+  stage22job:
+    image: node
+    script:
+    - npm i
+    - npm run build
+  stage3job:
+    image: node
+    script:
+    - npm i
+    - npm run build
 
 stages:
   - build_and_test:
@@ -29,4 +39,8 @@ stages:
   - build_and_test2:
       jobs:
         - stage2job
+        - stage22job
         - build2
+  - build_and_test3:
+      jobs:
+        - stage3job

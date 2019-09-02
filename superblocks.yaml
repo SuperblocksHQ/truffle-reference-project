@@ -12,7 +12,9 @@ jobs:
     - npm run test
 
 stages:
-  - build_and_test:
+  - build:
       jobs:
-        - build
+        - test
+  - test:
+      jobs:
         - test

@@ -12,22 +12,26 @@ module.exports = {
     },
     rinkeby: {
       provider: function() { return new HDWalletProvider(process.env.MNEMONIC, "https://rinkeby.infura.io/v3/" + process.env.INFURA_API_KEY) },
+      gasPrice: 4000000000,
       network_id: '4'
     },
     rinkeby_metamask: {
         provider: () => {
             return new SuperProvider(process.env.SUPERBLOCKS_SESSIONID, process.env.SUPERBLOCKS_ADDRESS, {proxyUrl: process.env.WEB3_ENDPOINT})
         },
+        gasPrice: 4000000000,
         network_id: '4'
     },
     ropsten: {
       provider: function() { return new HDWalletProvider(process.env.MNEMONIC, "https://ropsten.infura.io/v3/" + process.env.INFURA_API_KEY) },
+      gasPrice: 4000000000,
       network_id: '3'
     },
     ropsten_metamask: {
         provider: () => {
             return new SuperProvider(process.env.SUPERBLOCKS_SESSIONID, process.env.SUPERBLOCKS_ADDRESS, {proxyUrl: process.env.WEB3_ENDPOINT})
         },
+        gasPrice: 4000000000,
         network_id: '3'
     }
   }

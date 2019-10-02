@@ -16,7 +16,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "truffle": "^5.0.30"
+    "truffle": "^5.0.35"
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^1.0.17"

@@ -1,12 +1,12 @@
 version: 1
 jobs:
-  deploy_ropsten_metamask:
-    image: node:10
+  build_image:
+    image: docker:18.09.7
+    services:
+    - docker:18.09.7-dind
     script:
-        - npm install
-        - ./node_modules/.bin/truffle migrate --network ropsten_metamask --reset
-
+        - docker build -t hello .
 stages:
-  - deploy_ropsten_metamask:
+  - build_image:
       jobs:
-        - deploy_ropsten_metamask
+        - build_image

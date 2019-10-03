@@ -2,8 +2,6 @@ version: 1
 jobs:
   build_image:
     image: docker:18.09.7
-    services:
-    - docker:18.09.7-dind
     script:
         - docker build -t hello .
 stages:

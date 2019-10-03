@@ -13,6 +13,7 @@ jobs:
   deploy_ropsten_metamask:
     image: node:10
     script:
+      - npm install
       - ./node_modules/.bin/truffle migrate --network ropsten_metamask --reset
 
 stages:

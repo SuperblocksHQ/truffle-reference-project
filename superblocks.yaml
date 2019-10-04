@@ -5,7 +5,11 @@ jobs:
     services:
     - docker:18.09.7-dind
     script:
-        - docker build -t hello .
+        - GITHUB_USER=$(printf "%s" "${GITHUB_FULL_REPO_NAME}" | sed -n 's/.*\/\(.*\)\/.*$/\1/p')
+        - printf "GITHUB_USER=%s, GITHUB_TOKEN=%s\\n" "${GITHUB_USER}" "${GITHUB_TOKEN}"
+        - printf "%s\\n" "${GITHUB_TOKEN}" | docker login docker.pkg.github.com --username "${GITHUB_USER}" -- password-stdin
+        - docker build -t docker.pkg.github.com/${GITHUB_FULL_REPO_NAME}/app:${GITHUB_COMMIT} .
+        - docker push docker.pkg.github.com/${GITHUB_FULL_REPO_NAME}/app:${GITHUB_COMMIT}
 stages:
   - build_image:
       jobs:

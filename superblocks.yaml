@@ -6,7 +6,7 @@ jobs:
     - docker:18.09.7-dind
     script:
         - GITHUB_USER=$(printf "%s" "${GITHUB_FULL_REPO_NAME}" | sed -n 's/.*\/\(.*\)\/.*$/\1/p')
-        - printf "GITHUB_USER=%s, GITHUB_TOKEN=%s\\n" "${GITHUB_USER}" "${GITHUB_TOKEN}"
+        - printf "GITHUB_USER=%s, GITHUB_TOKEN=%s\\n" '${GITHUB_USER}' '${GITHUB_TOKEN}'
         - docker build -t docker.pkg.github.com/${GITHUB_FULL_REPO_NAME}/app:${GITHUB_COMMIT} .
         - docker push docker.pkg.github.com/${GITHUB_FULL_REPO_NAME}/app:${GITHUB_COMMIT}
 stages:

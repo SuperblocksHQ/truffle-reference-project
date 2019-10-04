@@ -2,6 +2,11 @@ version: 1
 jobs:
   deploy_ropsten_metamask:
     image: node:10
+    type: {
+      name: 'ethereum/deploy',
+      signing: true,
+      record: true
+    },
     script:
       - npm install
       - ./node_modules/.bin/truffle migrate --network rinkeby_metamask --reset

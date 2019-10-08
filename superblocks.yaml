@@ -1,12 +1,27 @@
+# Vanilla configuration
+# Start with a minimal configuration that you can customize to build your code
+# http://superblocks.com/docs/configuration/configuration-introduction/#section=configuration
+
 version: 1
 jobs:
-  deploy_ropsten_metamask:
-    image: node:10
+  push_to_docker_registry:
+    image: docker:18.09.7
+    services:
+      - docker:18.09.7-dind
     script:
-        - npm install
-        - ./node_modules/.bin/truffle migrate --network ropsten_metamask --reset
+      - echo "$GITHUB_REGISTRY_TOKEN" | docker login docker.pkg.github.com --username SuperblocksHQ --password-stdin
+      - docker build --build-arg BUILD=build:dev -t $GITHUB_REGISTRY_IMAGE:$SUPER_COMMIT_SHA1 .
+      - docker push $GITHUB_REGISTRY_IMAGE:$SUPER_COMMIT_SHA1
+      
+  deploy_ropsten_metamask:
+    image: $GITHUB_REGISTRY_IMAGE:$SUPER_COMMIT_SHA1
+    script:
+        - npx truffle migrate --network ropsten_metamask --reset
 
 stages:
-  - deploy_ropsten_metamask:
+  - build:
+      jobs:
+        - push_to_docker_registry
+  - deploy:
       jobs:
         - deploy_ropsten_metamask

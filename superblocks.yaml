@@ -22,6 +22,12 @@ stages:
   - build:
       jobs:
         - push_to_docker_registry
+          filters:
+            - only:
+                master
   - deploy:
       jobs:
         - deploy_ropsten_metamask
+           filters:
+            - only:
+                master

@@ -1,6 +1,4 @@
-# Vanilla configuration
-# Start with a minimal configuration that you can customize to build your code
-# http://superblocks.com/docs/configuration/configuration-introduction/#section=configuration
+# Truffle Reference Project
 
 version: 1
 jobs:

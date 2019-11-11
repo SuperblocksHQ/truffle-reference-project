@@ -1,10 +1,15 @@
 version: 1
 jobs:
-  build_and_test:
+  build:
     image: node:10
     script:
         - npm install
         - npx truffle compile
+
+  test:
+    image: node:10
+    script:
+        - npm install
         - npx truffle test
 
   deploy_ropsten_metamask:
@@ -16,7 +21,8 @@ jobs:
 stages:
   - build_and_test:
       jobs: 
-        - build_and_test
+        - build
+        - test
   - deploy_ropsten_metamask:
       jobs:
         - deploy_ropsten_metamask:

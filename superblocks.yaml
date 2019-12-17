@@ -10,6 +10,7 @@ jobs:
       - npm install
       - ./node_modules/.bin/truffle migrate --network rinkeby_metamask --reset
 
+
 stages:
   - deploy_ropsten_metamask:
       jobs:

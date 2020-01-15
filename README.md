@@ -9,13 +9,17 @@ Truffle reference repository to showcase Superblocks functionality on how to bui
 * Fully automate your build proccess using Superblocks CI
 * Automate, track, sing and deploy your transactions using Superblocks
 
+
 ## Quick start
 Below is described how to get the a **Truffle** project setup and running locally.
+
 
 ### Install node modules
 ```sh
 npm i
 ```
+
+<br/>
 
 ## Setup 
 
@@ -44,7 +48,10 @@ In order to get this values setup, follow the this instructions:
 5. Go to the section `Project Tokens`, give your token a fancy name and click in `Generate`. Copy the generated key. 
 5. Finally change the process.env.PROJECT_TOKEN in the `truffle-config.js` file with your newly created token (or simply keep reading on how can you leave everything with Env variables when exec the `truffle migrate` command)
 
-### Performing the deployment (Running the truffle migrations)
+
+<br/>
+
+## Performing the deployment (Running the truffle migrations)
 There are 2 different way you can do this. 
 
 #### Method 1: 
@@ -60,7 +67,6 @@ Run
 ```
 DEPLOYMENT_SPACE_ID={your_space_id} DEPLOY_TOKEN={your_token} npx truffle  migrate --network=rinkeby_metamask --verbose-rpc --reset
 ```
-
 
 ### Signing and broadcasting the Txs to the blockchain
 Finally once everything is setup, you will see that our super provider will route the RPC calls for sending transacations to our plaform. Head to the dashboard and open your deployment space and you will see a new enviornment and a the last deployment created for you. Simply click in the deploymentId and you wil be taken to the deployment details page. 

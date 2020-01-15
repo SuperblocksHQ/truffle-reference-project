@@ -20,6 +20,7 @@ jobs:
         - npm install
         - npx truffle migrate --network rinkeby_metamask --reset
 
+        
 stages:
   - build_and_test:
       jobs: 

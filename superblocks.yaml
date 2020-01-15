@@ -1,19 +1,19 @@
 version: 1
 jobs:
   build:
-    image: node:12-alpine
+    image: node:12
     script:
         - npm install
         - npx truffle compile
 
   test:
-    image: node:12-alpine
+    image: node:12
     script:
         - npm install
         - npx truffle test
 
   deploy_rinkeby_metamask:
-    image: node:12-alpine
+    image: node:12
     script:
         - npm install
         - npx truffle migrate --network rinkeby_metamask --reset

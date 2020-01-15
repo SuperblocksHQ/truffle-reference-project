@@ -15,7 +15,7 @@ jobs:
   deploy_rinkeby_metamask:
     image: node:12
     type:
-        ethereum/deploy
+        name: ethereum/deploy
     script:
         - npm install
         - npx truffle migrate --network rinkeby_metamask --reset

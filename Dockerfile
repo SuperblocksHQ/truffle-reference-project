@@ -4,4 +4,4 @@ COPY . /project
 
 WORKDIR /project
 
-CMD ["sh", "-c", "/project/node_modules/.bin/truffle migrate --network ${NETWORK}"]
+CMD ["sh", "-c", "npx truffle migrate --network ${NETWORK}"]

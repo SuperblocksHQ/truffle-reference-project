@@ -14,6 +14,8 @@ jobs:
 
   deploy_rinkeby_metamask:
     image: node:12-alpine
+    type:
+        ethereum/deploy
     script:
         - npm install
         - npx truffle migrate --network rinkeby_metamask --reset

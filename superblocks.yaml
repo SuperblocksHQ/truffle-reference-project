@@ -1,29 +1,29 @@
 version: 1
 jobs:
   build:
-    image: node:10
+    image: node:12-alpine
     script:
         - npm install
         - npx truffle compile
 
   test:
-    image: node:10
+    image: node:12-alpine
     script:
         - npm install
         - npx truffle test
 
-  deploy_ropsten_metamask:
-    image: node:10
+  deploy_rinkeby_metamask:
+    image: node:12-alpine
     script:
         - npm install
-        - ./node_modules/.bin/truffle migrate --network ropsten_metamask --reset
+        - npx truffle migrate --network rinkeby_metamask --reset
 
 stages:
   - build_and_test:
       jobs: 
         - build
         - test
-  - deploy_ropsten_metamask:
+  - deploy:
       jobs:
-        - deploy_ropsten_metamask:
+        - deploy_rinkeby_metamask:
             when: manual

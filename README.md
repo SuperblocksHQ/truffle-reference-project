@@ -69,7 +69,7 @@ DEPLOYMENT_SPACE_ID={your_space_id} DEPLOY_TOKEN={your_token} npx truffle  migra
 ```
 
 ### Signing and broadcasting the Txs to the blockchain
-Finally once everything is setup, you will see that our super provider will route the RPC calls for sending transacations to our plaform. Head to the dashboard and open your deployment space and you will see a new enviornment and a the last deployment created for you. Simply click in the deploymentId and you wil be taken to the deployment details page. 
+Finally once everything is setup, you will see that our super provider will route the RPC calls for sending transactions to our plaform. Head to the dashboard and open your deployment space and you will see a new enviornment and a the last deployment created for you. Simply click in the deploymentId and you wil be taken to the deployment details page. 
 
 So whenver Truffle is trying to send a new txs to the chain, we will re-route it and display it for you in the UI. Simply click the `Sign` button, approve the tx in Metamask (make sure the selected account matches the one configure in the `truffle-config.js` and the selected network also matches), and the transcation will be deployed to the chain. Once this is done, we will send all the way back to Truffle the txReceipt hash so your deployment can continue. 
 

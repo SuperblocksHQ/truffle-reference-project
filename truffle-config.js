@@ -23,6 +23,10 @@ const deploymentSpaceId = process.env.DEPLOYMENT_SPACE_ID;
 // section. 
 const token = process.env.TOKEN;
 
+// Simply your 12 seeds word associated with your wallet. This is used only for the SuperHDWallet provider
+// so you can sign the txs client side, but still keep track fo the deployment within Superblocks.
+const mnemonic = process.env.MNEMONIC;
+
 module.exports = {
   plugins: ["truffle-security"],
 
@@ -41,7 +45,7 @@ module.exports = {
             rinkebyProvider = new SuperHDWalletProvider({
               deploymentSpaceId,
               token,
-              mnemonic: process.env.MNEMONIC,
+              mnemonic,
               networkId: '4',
               provider: "https://rinkeby.infura.io/v3/14a9bebf5c374938b2476abe29ca5564"
             });

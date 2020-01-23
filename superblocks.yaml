@@ -12,7 +12,15 @@ jobs:
         - npm install
         - npx truffle test
 
-  deploy_rinkeby_metamask:
+  deploy_to_rinkeby:
+    image: node:12
+    type:
+        name: ethereum/deploy
+    script:
+        - npm install
+        - npx truffle migrate --network rinkeby --reset
+
+  deploy_to_mainnet:
     image: node:12
     type:
         name: ethereum/deploy
@@ -26,7 +34,16 @@ stages:
       jobs: 
         - build
         - test
-  - deploy:
+  - deploy_to_testnets:
       jobs:
-        - deploy_rinkeby_metamask:
+        - deploy_to_rinkeby:
+            filters:
+              only: 
+                - master
+  - deploy_to_mainnet:
+      jobs:
+        - deploy_to_mainnet:
             when: manual
+            filters:
+              only: 
+                - master

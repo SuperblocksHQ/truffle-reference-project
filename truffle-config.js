@@ -1,7 +1,7 @@
 const path = require("path");
 const { SuperHDWalletProvider, ManualSignProvider } = require("super-web3-provider");
 
-// We need to globally store these providers here due to the fact that Truffle decides to call
+// IMPORTANT: We need to globally store these providers here due to the fact that Truffle decides to call
 // the provider() function multiple times during a deployment, therefore we would be re-creating
 // a deployment on every call. 
 let rinkebyProvider;

@@ -6,6 +6,7 @@ const { SuperHDWalletProvider, ManualSignProvider } = require("super-web3-provid
 // a deployment on every call. 
 let rinkebyProvider;
 let rinkebyMetamaskProvider;
+let mainnetProvider;
 
 
 /**
@@ -73,6 +74,25 @@ module.exports = {
           
       },
       network_id: '4'
+    },
+    mainnet: {
+      provider: () => {
+        
+          // Let's not double create the provider (as we will create many deployments) as Truffle calls this function many times (◔_◔)
+          if (!mainnetProvider) {
+            mainnetProvider = new ManualSignProvider({ 
+              deploymentSpaceId,
+              token,
+              from: '0xEA6630F5bfA193f76cfc5F530648061b070e7DAd', 
+              endpoint: 'https://mainnet.infura.io/v3/14a9bebf5c374938b2476abe29ca5564',
+              networkId: '1',
+            })
+          }
+
+          return mainnetProvider;
+          
+      },
+      network_id: '1'
     }
   }
 };

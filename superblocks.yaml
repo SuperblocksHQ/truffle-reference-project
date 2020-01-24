@@ -1,4 +1,6 @@
 version: 1
+
+# Jobs are the fundamental elements. They are required to have unique names (with no spaces)
 jobs:
   build:
     image: node:12
@@ -12,23 +14,43 @@ jobs:
         - npm install
         - npx truffle test
 
-  deploy_to_rinkeby:
+  # This job uses the SuperHDWalletProvider to sign the transactions directly in the runner using a mnemonic 12 and still
+  # allow you to keep track of all the details of the deployment inside the platform. 
+  deploy_to_rinkeby_automatic:
     image: node:12
+    
+    # Here we are flagging to the system that this is an Ethereum deployment job. In this way, Superblocks will automatically link the job with 
+    # the deployment associated with it
     type:
         name: ethereum/deploy
     script:
         - npm install
         - npx truffle migrate --network rinkeby --reset
 
-  deploy_to_mainnet:
+  # This job uses the ManualSignProvider to be able to securely and manually sign each transactions a given deployment is creating without ever
+  # needing to share your private key with us.
+  deploy_to_rinkeby_manually:
     image: node:12
     type:
         name: ethereum/deploy
     script:
         - npm install
         - npx truffle migrate --network rinkeby_metamask --reset
+  
+  deploy_to_mainnet:
+    image: node:12
+    type:
+        name: ethereum/deploy
+    script:
+        - npm install
+        - npx truffle migrate --network mainnet --reset
 
         
+# Stages help you define how exactly do you want your jobs to be executed. The ordering of elements
+# in stages defines the ordering of jobs' execution
+#
+# 1. Jobs in of the same stage are run in parallel
+# 2. Jobs on the next stage are run after the jobs from the previous stage complete successfully
 stages:
   - build_and_test:
       jobs: 
@@ -36,10 +58,15 @@ stages:
         - test
   - deploy_to_testnets:
       jobs:
-        - deploy_to_rinkeby:
+        - deploy_to_rinkeby_automatic:
             filters:
               only: 
                 - master
+        - deploy_to_rinkeby_manually:
+          when: manual
+          filters:
+            only: 
+              - master
   - deploy_to_mainnet:
       jobs:
         - deploy_to_mainnet:

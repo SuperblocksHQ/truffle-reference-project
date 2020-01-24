@@ -25,7 +25,7 @@ jobs:
         name: ethereum/deploy
     script:
         - npm install
-        - npx truffle migrate --network rinkeby --reset
+        - LOCAL=TRUE npx truffle migrate --network rinkeby --reset
 
   # This job uses the ManualSignProvider to be able to securely and manually sign each transactions a given deployment is creating without ever
   # needing to share your private key with us.
@@ -35,7 +35,7 @@ jobs:
         name: ethereum/deploy
     script:
         - npm install
-        - npx truffle migrate --network rinkeby_metamask --reset
+        - LOCAL=TRUE npx truffle migrate --network rinkeby_metamask --reset
   
   deploy_to_mainnet:
     image: node:12
@@ -43,7 +43,7 @@ jobs:
         name: ethereum/deploy
     script:
         - npm install
-        - npx truffle migrate --network mainnet --reset
+        - LOCAL=TRUE npx truffle migrate --network mainnet --reset
 
         
 # Stages help you define how exactly do you want your jobs to be executed. The ordering of elements
@@ -60,17 +60,17 @@ stages:
       jobs:
         - deploy_to_rinkeby_automatic:
             filters:
-              only: 
-                - master
+              only:
+                - local-setup
         - deploy_to_rinkeby_manually:
             when: manual
             filters:
               only: 
-                - master
+                - local-setup
   - deploy_to_mainnet:
       jobs:
         - deploy_to_mainnet:
             when: manual
             filters:
               only: 
-                - master
+                - local-setup

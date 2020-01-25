@@ -9,12 +9,6 @@ let rinkebyMetamaskProvider;
 let mainnetProvider;
 
 
-/**
- * PRO TIP: If you want to run all this inside your terminal to try things out, simply assign the variables 
- * here and good to go. We do recommend though to put all this as ENV variables when running in a CI, so
- * you never actually commit this values into your repository
- */
-
 // Make sure to login into Superblocks, and create a new deployment space in a project. You can find 
 // the deployment space id inside the space settings by clicking the gear icon next to the name
 const deploymentSpaceId = process.env.DEPLOYMENT_SPACE_ID;

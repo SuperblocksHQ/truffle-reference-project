@@ -8,7 +8,6 @@ let rinkebyProvider;
 let rinkebyMetamaskProvider;
 let mainnetProvider;
 
-
 /**
  * PRO TIP: If you want to run all this inside your terminal to try things out, simply assign the variables 
  * here and good to go. We do recommend though to put all this as ENV variables when running in a CI, so

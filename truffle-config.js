@@ -28,7 +28,7 @@ const token = process.env.TOKEN;
 const mnemonic = process.env.MNEMONIC;
 
 module.exports = {
-  plugins: ["truffle-security, super-artifacts"],
+  plugins: ["super-artifacts"],
 
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!

@@ -58,7 +58,7 @@ stages:
         - test
   - deploy_to_testnets:
       jobs:
-        - deploy_to_rinkeby_automatic:
+        - deploy_to_rinkeby_automatic
         - deploy_to_rinkeby_manually:
             when: manual
   - deploy_to_mainnet:

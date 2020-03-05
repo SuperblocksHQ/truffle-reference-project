@@ -64,9 +64,6 @@ stages:
                 - master
         - deploy_to_rinkeby_manually:
             when: manual
-            filters:
-              only: 
-                - master
   - deploy_to_mainnet:
       jobs:
         - deploy_to_mainnet:

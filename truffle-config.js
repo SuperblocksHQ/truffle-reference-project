@@ -29,7 +29,7 @@ const token = process.env.TOKEN;
 const mnemonic = process.env.MNEMONIC;
 
 module.exports = {
-  plugins: ["truffle-security"],
+  plugins: ["truffle-security, super-artifacts"],
 
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
@@ -48,7 +48,8 @@ module.exports = {
               token,
               mnemonic,
               networkId: '4',
-              provider: "https://rinkeby.infura.io/v3/14a9bebf5c374938b2476abe29ca5564"
+              provider: "https://rinkeby.infura.io/v3/14a9bebf5c374938b2476abe29ca5564",
+	      saveArtifacts: true
             });
           }
         
@@ -67,6 +68,7 @@ module.exports = {
               from: '0xEA6630F5bfA193f76cfc5F530648061b070e7DAd', 
               endpoint: 'https://rinkeby.infura.io/v3/14a9bebf5c374938b2476abe29ca5564',
               networkId: '4',
+	      saveArtifacts: true
             })
           }
 
@@ -86,6 +88,7 @@ module.exports = {
               from: '0xEA6630F5bfA193f76cfc5F530648061b070e7DAd', 
               endpoint: 'https://mainnet.infura.io/v3/14a9bebf5c374938b2476abe29ca5564',
               networkId: '1',
+	      saveArtifacts: true	
             })
           }
 

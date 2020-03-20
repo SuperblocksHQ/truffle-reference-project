@@ -37,13 +37,13 @@ In order to get this values setup, follow the this instructions:
 #### PROJECT_ID
 1. Login into Superblocks using your Github user.
 2. If you haven't created an organization/project, create one.
-3. Once your project is created, head to the project settings (by clicking the gear icon next to the project name)
-4. Finally set "PROJECT_ID" env variable for that project with project id obtained on step 3.
+3. Once your project is created, head to the project settings
+4. You will find the project id under the General section
 
 #### DEPLOY_TOKEN
 1. Login into Superblocks using your Github user.
 2. If you haven't created an organization/project, create one.
-4. Once your project is created, head to the project settings (by clicing the `Project Settings` in the left menu of your project. 
+4. Once your project is created, head to the project settings
 5. Go to the section `Tokens`, give your token a fancy name and click in `Generate`. Copy the generated key. 
 6. Finally set "TOKEN" env variable for that project with project id obtained on step 5.
 

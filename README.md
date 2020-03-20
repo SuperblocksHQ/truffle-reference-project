@@ -1,6 +1,6 @@
 # [Truffle Reference Project](https://superblocks.com/d/superblocks/projects/reference-projects/)
 
-[![Superblocks](https://superblocks.com/d/superblocks/projects/reference-projects.svg?branch=master)](https://superblocks.com/d/superblocks/projects/reference-projects)
+[![Superblocks](https://superblocks.com/d/superblocks/projects/reference-projects.svg?branch=master)](https://superblocks.com/d/superblocks/projects/reference-projects) [![Netlify Status](https://api.netlify.com/api/v1/badges/6722646b-c873-472c-bd4e-1ea77c0d024c/deploy-status)](https://app.netlify.com/sites/inspiring-shirley-708b62/deploys)
 
 Truffle reference repository to showcase Superblocks functionality on how to build and deploy your Ethereum contract projects
 

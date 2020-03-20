@@ -15,8 +15,8 @@ let mainnetProvider;
  * you never actually commit this values into your repository
  */
 
-// Make sure to login into Superblocks, and create a new deployment space in a project. You can find 
-// the deployment space id inside the space settings by clicking the gear icon next to the name
+// Make sure to login into Superblocks, and create a new a project. You can find 
+// the project id inside the project settings
 const projectId = process.env.PROJECT_ID;
 
 // You need to create a new token in order to authenticate against the service. Login into the dashboard,

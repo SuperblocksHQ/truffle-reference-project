@@ -1,6 +1,6 @@
 # [Truffle Reference Project](https://superblocks.com/d/superblocks/projects/reference-projects/)
 
-[![Superblocks](https://superblocks.com/d/superblocks/projects/reference-projects.svg?branch=master)](https://superblocks.com/d/superblocks/projects/reference-projects) [![Netlify Status](https://api.netlify.com/api/v1/badges/6722646b-c873-472c-bd4e-1ea77c0d024c/deploy-status)](https://app.netlify.com/sites/inspiring-shirley-708b62/deploys)
+[![Superblocks](https://superblocks.com/d/superblocks/projects/reference-projects.svg?branch=master)](https://superblocks.com/d/superblocks/projects/reference-projects)
 
 Truffle reference repository to showcase Superblocks functionality on how to build and deploy your Ethereum contract projects
 
@@ -63,6 +63,19 @@ Finally once everything is setup, you will see that our super provider will rout
 So whenever Truffle is trying to send a new txs to the chain, we will re-route it and display it for you in the UI. Simply click the `Sign` button, approve the tx in Metamask (make sure the selected account matches the one configure in the `truffle-config.js` and the selected network also matches), and the transaction will be deployed to the chain. Once this is done, we will send all the way back to Truffle the txReceipt hash so your deployment can continue. 
 
 Repeat this proccess until all your txs are signed and succesfully deployed. 
+
+### Artifact collection
+
+Once you have done a deployment, you can collect all the artifacts generated during your deployment routine to always have them accessible and unlock other set o features like contract interaction 
+
+In order to see how to start collecting artifacts for your project, check out our [Superblocks CLI project](https://github.com/SuperblocksHQ/super-cli)
+
+#### Suported Frameworks
+ - Truffle
+
+
+
+
 
 
 

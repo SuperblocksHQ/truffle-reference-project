@@ -16,6 +16,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "superblocks-cli": "0.0.3",
     "truffle": "^5.0.35"
   },
   "dependencies": {
